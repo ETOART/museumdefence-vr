@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Unity WebGL Player | MuseumWeb</title>
+    <title>MuseumWeb</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
   </head>
@@ -58,9 +58,9 @@ var container = document.querySelector("#unity-container");
       var buildUrl = "Build";
       var loaderUrl = buildUrl + "/Museum.loader.js";
       var config = {
-        dataUrl: buildUrl + "/Museum.data",
-        frameworkUrl: buildUrl + "/Museum.framework.js",
-        codeUrl: buildUrl + "/Museum.wasm",
+        dataUrl: buildUrl + "/Museum.data.gz",
+        frameworkUrl: buildUrl + "/Museum.framework.js.gz",
+        codeUrl: buildUrl + "/Museum.wasm.gz",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "DefaultCompany",
         productName: "MuseumWeb",
@@ -75,7 +75,7 @@ var container = document.querySelector("#unity-container");
       // the canvas DOM size and WebGL render target sizes yourself.
       // config.matchWebGLToCanvasSize = false;
 
-
+  
 
       loadingBar.style.display = "block";
 
