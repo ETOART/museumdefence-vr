@@ -1,16 +1,77 @@
-body { padding: 0; margin: 0 }
-#unity-container { position: absolute }
-#unity-container.unity-desktop { left: 50%; top: 50%; transform: translate(-50%, -50%) }
-#unity-container.unity-mobile { position: fixed; width: 100%; height: 100% }
-#unity-canvas { background: #231F20 }
-.unity-mobile #unity-canvas { width: 100%; height: 100% }
-#unity-loading-bar { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); display: none }
-#unity-logo { width: 154px; height: 130px; background: url('unity-logo-dark.png') no-repeat center }
-#unity-progress-bar-empty { width: 141px; height: 18px; margin-top: 10px; margin-left: 6.5px; background: url('progress-bar-empty-dark.png') no-repeat center }
-#unity-progress-bar-full { width: 0%; height: 18px; margin-top: 10px; background: url('progress-bar-full-dark.png') no-repeat center }
-#unity-footer { position: relative }
-.unity-mobile #unity-footer { display: none }
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #ffffff; 
+    display: flex; /* Устанавливаем флекс-контейнер */
+    justify-content: center; /* Центрируем по горизонтали */
+    align-items: center; /* Центрируем по вертикали */
+  }
+
+#unity-canvas { 
+     width: 100%;
+    height: 100%;
+    background: #ffffff; 
+}
+
+#unity-loading-bar { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); display: flex }
+#progress-bar-container {
+    position: absolute; /* Устанавливаем абсолютное позиционирование */
+    top: 50%; /* Центрируем по вертикали */
+    left: 50%; /* Центрируем по горизонтали */
+    transform: translate(-50%, -50%); /* Смещаем элемент на 50% его ширины и высоты */
+    width: 20%; /* Ширина контейнера */
+    max-width: 300px; /* Максимальная ширина */
+    background-color: #f5f5f5; /* Цвет фона */
+    border-radius: 15px; /* Закругление углов */
+    overflow: hidden; /* Скрытие содержимого за пределами контейнера */
+    border: 1px solid #757575; /* Граница */
+}
+
+
+        #progress-bar {
+            width: 0%;
+            height: 15px;
+            background-color: #fff;
+            border-radius: 25px 0 0 25px;
+            transition: width 0.3s ease;
+        }
+#unity-progress-bar-empty {
+    
+    display: flex;
+    width: 141px; /* Ширина прогресс-бара */
+    height: 18px; /* Высота прогресс-бара */
+    margin-top: 10px; /* Отступ сверху */
+    margin-left: 6.5px; /* Отступ слева */
+    background-color: #333; /* Цвет фона для пустого прогресс-бара */
+    border-radius: 5px; /* Закругление углов */
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5); /* Внутренний теневой эффект */
+}
+
+#unity-progress-bar-full {
+    width: 0%; /* Начальная ширина полного прогресс-бара (будет изменяться динамически) */
+    height: 18px; /* Высота прогресс-бара */
+    margin-top: 10px; /* Отступ сверху */
+    background-color: #76c7c0; /* Цвет фона для полного прогресс-бара */
+    border-radius: 5px; /* Закругление углов */
+    transition: width 0.3s ease; /* Плавный переход ширины */
+}
+
 #unity-webgl-logo { float:left; width: 204px; height: 38px; background: url('webgl-logo.png') no-repeat center }
 #unity-build-title { float: right; margin-right: 10px; line-height: 38px; font-family: arial; font-size: 18px }
-#unity-fullscreen-button { cursor:pointer; float: right; width: 38px; height: 38px; background: url('fullscreen-button.png') no-repeat center }
-#unity-warning { position: absolute; left: 50%; top: 5%; transform: translate(-50%); background: white; padding: 10px; display: none }
+#unity-fullscreen-button {
+    position: absolute; /* Зафиксировать элемент на экране */
+    top: 0; /* Положение сверху */
+    left: 0; /* Положение слева */
+  
+    background-color: white; /* Белый фон */
+    color: black; /* Черный текст */
+    padding: 10px; /* Отступ для кнопки */
+    width: 100%;
+    height: 100%;
+    display: none; /* Используем флексбокс для центрирования */
+    justify-content: center; /* Центрирование по горизонтали */
+    align-items: center; /* Центрирование по вертикали */
+}
